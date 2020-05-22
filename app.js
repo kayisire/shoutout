@@ -1,9 +1,9 @@
 require('dotenv').config()
-const express = require("express");
-const app = express();
+var express = require("express");
+var app = express();
 
-const bodyParser = require('body-parser');
-const mongoose = require('mongoose');
+var bodyParser = require('body-parser');
+var mongoose = require('mongoose');
 
 //configuring middlewares
 app.use(bodyParser.urlencoded({ extended: true}));
@@ -18,6 +18,15 @@ mongoose.connect(process.env.DATABASE_URL, {
 }).catch(err => {
     console.log('Could not connect to the database.', err)
 })
+
+//ROUTES
+var router = express.Router();
+
+router.get('/', function(req, res){
+    res.json({message : 'here are the apis'});
+});
+app.use('/topic', router);
+
 
 //starting the server 
 app.listen(3000, () => console.log('Server started'))
