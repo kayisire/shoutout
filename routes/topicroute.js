@@ -56,4 +56,33 @@ router.get('/:id', getTopic, (req, res) => {
     res.json(res.topics)
 })
 
+//Deleting one
+router.delete('/:id',getTopic, async (req, res) => {
+    try {
+        await res.topics.remove()
+        res.json({message: ' Topic Deleted'})
+    } catch (err) {
+        res.status(500).json({message: err.message})
+    }
+})
+
+//Updating one
+router.patch('/:id',getTopic,async(req, res) => {
+    if (req.body.title !== null) {
+        res.topics.title = req.body.title
+    }
+    if (req.body.content !== null) {
+        res.topics.content = req.body.content
+    }
+    if (req.body.status !== null) {
+        res.topics.status = req.body.status
+    }
+    try {
+        const updateTopic = await res.topics.save()
+        res.json(updateTopic)
+    } catch (err) {
+        res.status(400).json({message: err.message})
+    }
+
+})
 module.exports = router;
