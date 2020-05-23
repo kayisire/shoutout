@@ -3,6 +3,28 @@ const router = express.Router()
 // importing model
 const Topic = require('../models/topic')
 
+/**
+ * 
+ * Request handler
+ * Middleware
+ * @param {*} req 
+ * @param {*} res 
+ * @param {*} next 
+ */
+
+async function getTopic(req, res, next){
+    try {
+        topics = await Topic.findById(req.params.id)
+        if (topics ==  null) {
+            return res.status(404).json({message: 'Cannot find topic'})
+        }
+    } catch(err) {
+        return res.status(500).json({message: err.message })
+    }
+    res.topics = topics
+    next()
+}
+
 // Get all topics route
 router.get('/', async (req, res) => {
     try {
@@ -28,4 +50,10 @@ router.post('/', async (req, res) => {
         res.status(400).json({ message : err.message })
     }
 })
+
+//Getting one
+router.get('/:id', getTopic, (req, res) => {
+    res.json(res.topics)
+})
+
 module.exports = router;
