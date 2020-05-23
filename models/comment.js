@@ -1,11 +1,11 @@
-var mongoose = require("mongoose");
+let mongoose = require("mongoose");
 
-var requirementString = {
+let requirementString = {
     type : String,
     require: true
 }
 
-var commentSchema = new mongoose.Schema({
+let commentSchema = new mongoose.Schema({
     comment : requirementString,
     timestamp : {
         type : Date,
@@ -13,4 +13,4 @@ var commentSchema = new mongoose.Schema({
     }
 });
 
-var Comment = (module.exports = mongoose("comments", commentSchema));
+let Comment = (module.exports = mongoose("comments", commentSchema));

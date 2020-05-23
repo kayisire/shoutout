@@ -1,15 +1,13 @@
-var mongoose = require("mongoose");
-var Comment = require("./comment");
+const mongoose = require("mongoose");
 
-var requirementString = {
+let requirementString = {
     type : String,
     require: true
 }
 
-var topicSchema = mongoose.Schema({
+const topicSchema = new mongoose.Schema({
     title: requirementString,
     content : requirementString,
-    comment : Comment.schema,
     status : requirementString,
     timestamp : {
         type : Date,
@@ -18,4 +16,4 @@ var topicSchema = mongoose.Schema({
 
 });
 
-var Topic = (module.export = mongoose.model("topic", topicSchema));
+module.exports = mongoose.model("Topic", topicSchema)

@@ -1,13 +1,14 @@
 require('dotenv').config()
-var express = require("express");
-var app = express();
+const express = require("express")
+const app = express()
+const router = express.Router()
+const bodyParser = require('body-parser')
+const mongoose = require('mongoose')
 
-var bodyParser = require('body-parser');
-var mongoose = require('mongoose');
-
-//configuring middlewares
-app.use(bodyParser.urlencoded({ extended: true}));
-app.use(bodyParser.json());
+// configuring middlewares
+// app.use(bodyParser.urlencoded({ extended: true}))
+// app.use(bodyParser.json());
+app.use(express.json())
 
 //connecting to database
 mongoose.connect(process.env.DATABASE_URL, {
@@ -20,14 +21,8 @@ mongoose.connect(process.env.DATABASE_URL, {
 })
 
 //ROUTES
-var router = express.Router();
-
-router.get('/', function(req, res){
-    res.json({message : 'here are the apis'});
-});
-app.use('/topic', router);
-
+let topicRoutes = require('./routes/topicroute')
+app.use('/topic', topicRoutes)
 
 //starting the server 
 app.listen(3000, () => console.log('Server started'))
-module.exports = app
