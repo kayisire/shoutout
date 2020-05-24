@@ -23,7 +23,7 @@ const Router = require("./routes/Router");
 
 const app = express();
 const port = process.env.PORT;
-initDB();
+// initDB();
 
 /**
  * Configuring middleware for logging, body parsing, as well as cookie parsing

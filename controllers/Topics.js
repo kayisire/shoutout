@@ -17,7 +17,7 @@ class TopicController {
    * @param {Object[]} res - Response
    * @returns {Object[]} Response Obeject with HTTP status
    */
-  static createOneTopic = async (req, res) => {
+  static async createOneTopic(req, res) {
     try {
       //Creating one Topic record
       const TopicRecord = new Topic({
@@ -32,7 +32,7 @@ class TopicController {
       );
       res.status(400).json({ message: err.message });
     }
-  };
+  }
 
   /**
    * Retrieve all Topic records from DB
@@ -40,7 +40,7 @@ class TopicController {
    * @param {Object[]} res - Response
    * @returns {Object[]} Response Object with HTTP status
    */
-  static getAllTopics = async (req, res) => {
+  static async getAllTopics(req, res) {
     try {
       // Pulling all Topics
       const TopicRecord = await Topic.find();
@@ -51,7 +51,7 @@ class TopicController {
       );
       res.status(500).json({ message: err.message });
     }
-  };
+  }
 
   /**
    * Retrieve one Topic record by ID from DB
@@ -59,7 +59,7 @@ class TopicController {
    * @param {Object[]} res - Response
    * @returns {Object[]} Response Object with HTTP status
    */
-  static getOneTopic = async (req, res) => {
+  static async getOneTopic(req, res) {
     try {
       // Pulling one Topic
       const TopicRecord = await Topic.findById(req.params.id);
@@ -73,7 +73,7 @@ class TopicController {
       );
       res.status(500).json({ message: err.message });
     }
-  };
+  }
 
   /**
    * Delete one Topic record by ID from DB
@@ -81,7 +81,7 @@ class TopicController {
    * @param {Object[]} res - Response
    * @returns {Object[]} Response Object with HTTP status
    */
-  static deleteOneTopic = async (req, res) => {
+  static async deleteOneTopic(req, res) {
     try {
       // Deleting one Topic
       await Topic.findByIdAndUpdate(
@@ -96,7 +96,7 @@ class TopicController {
       );
       res.status(500).json({ message: err.message });
     }
-  };
+  }
 }
 
 module.exports = TopicController;
