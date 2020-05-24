@@ -1,0 +1,67 @@
+{
+  "name": "shoutout",
+  "version": "1.0.0",
+  "description": "Back-end codebase for SHOUTOUT",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js",
+    "test": "mocha --timeout 10000",
+    "coveralls": "nyc report --reporter=text-lcov | coveralls"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kayisire/shoutout.git"
+  },
+  "bugs": {
+    "url": "https://github.com/kayisire/shoutout/issues"
+  },
+  "engines": {
+    "node": "10.x"
+  },
+  "homepage": "https://github.com/kayisire/arti#readme",
+  "author": "Uwikuzo Magnificat, Kevin Kayisire",
+  "license": "ISC",
+  "dependencies": {
+    "@hapi/joi": "^17.1.1",
+    "@sendgrid/mail": "^6.5.5",
+    "@sentry/node": "^5.15.5",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "cookie-parser": "~1.4.4",
+    "cors": "^2.8.5",
+    "crypto": "^1.0.1",
+    "custom-env": "^2.0.1",
+    "debug": "~2.6.9",
+    "dotenv": "^8.2.0",
+    "ejs": "~2.6.1",
+    "express": "^4.17.1",
+    "express-fileupload": "^1.1.7-alpha.3",
+    "express-validator": "^6.3.1",
+    "gravatar": "^1.8.0",
+    "http": "0.0.0",
+    "http-errors": "~1.6.3",
+    "jsonwebtoken": "^8.5.1",
+    "mailgen": "^2.0.10",
+    "mongodb": "^3.5.2",
+    "mongoose": "^5.8.11",
+    "morgan": "^1.9.1",
+    "path": "^0.12.7"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2",
+    "chai": "^3.5.0",
+    "chai-http": "^2.0.1",
+    "coveralls": "^3.0.9",
+    "mocha": "^2.4.5",
+    "mocha-lcov-reporter": "^1.3.0"
+  },
+  "nyc": {
+    "exclude": [
+      "server/app.js",
+      "server/test/*.js",
+      "server/util/TokenUtil.js",
+      "server/models/*.js"
+    ]
+  }
+}
