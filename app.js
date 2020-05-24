@@ -52,7 +52,9 @@ app.use(
  * @param {string} path - Express path
  */
 
-app.get("/", (req, res) => Response.send200(res, "Welcome To SHOUTOUT", {}));
+app.get("/", (req, res) =>
+  Response.send200(res, `Welcome To ${process.env.APP_NAME}`, {})
+);
 
 /**
  * Route serving API Routes
@@ -86,7 +88,7 @@ app.use(function (err, req, res, next) {
 const server = async () => {
   try {
     app.listen(port, () =>
-      console.log(`SHOUTOUT is up and running on port: ${port}`)
+      console.log(`${process.env.APP_NAME} is up and running on port: ${port}`)
     );
   } catch (error) {
     console.error(`Oups! Encountered error: ${error.message}`);
