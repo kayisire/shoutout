@@ -10,7 +10,6 @@ const TopicSchema = mongoose.Schema(
   {
     title: requiredString,
     content: requiredString,
-    comments: [CommentSchema],
     isActive: { type: Boolean, require: true, default: true },
   },
   {
