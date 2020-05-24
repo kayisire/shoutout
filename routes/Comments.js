@@ -8,23 +8,23 @@ const router = Router();
 
 /**
  * Route for creating a Comment {POST}
- * @name /v1/comment
+ * @name /v1/topic/:id/comment
  * @param {string} path - Express path
  */
-router.post("/", CommentController.createOneComment);
+router.post("/topic/:topic/comment", CommentController.createOneComment);
 
 /**
- * Route displaying all Comments {GET}
- * @name /v1/comment
+ * Route for displaying all Comments per Topic {GET}
+ * @name /v1/topic/:id/comment
  * @param {string} path - Express path
  */
-router.get("/", CommentController.getAllComments);
+router.get("/topic/:topic/comment", CommentController.getAllComments);
 
 /**
  * Route for deleting a single Comment {DELETE}
- * @name /v1/comment/:id
+ * @name /v1/topic/:id/comment/:id
  * @param {string} path - Express path
  */
-router.delete("/:id", CommentController.deleteOneComment);
+router.delete("/topic/:topic/comment/:id", CommentController.deleteOneComment);
 
 module.exports = router;

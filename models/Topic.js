@@ -10,7 +10,7 @@ const TopicSchema = mongoose.Schema(
   {
     title: requiredString,
     content: requiredString,
-    isActive: { type: Boolean, require: true, default: true },
+    isDeleted: { type: Boolean, require: true, default: false },
   },
   {
     toJSON: {
