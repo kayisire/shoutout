@@ -23,7 +23,6 @@ class TopicController {
       const TopicRecord = new Topic({
         title: req.body.title,
         content: req.body.content,
-        status: req.body.status,
       });
       const newTopic = await TopicRecord.save();
       res.status(201).json(newTopic);
@@ -85,8 +84,12 @@ class TopicController {
   static deleteOneTopic = async (req, res) => {
     try {
       // Deleting one Topic
-      await Story.findOneAndDelete({ _id: req.params.id });
-      res.json({ message: " Topic Deleted Successfully" });
+      await Topic.findByIdAndUpdate(
+        { id: req.params.id },
+        { isDeleted: true },
+        { new: true }
+      );
+      res.json({ message: "Topic Deleted Successfully" });
     } catch (err) {
       console.log(
         `ERROR FOUND! \nClass: ${className} \nFunction: deleteOneTopic() \nERROR: ${err}`
