@@ -15,7 +15,6 @@ const fileUpload = require("express-fileupload");
  * */
 
 const initDB = require("./config/Database");
-const Response = require("./utils/Response");
 const Router = require("./routes/Router");
 
 /**
@@ -53,7 +52,7 @@ app.use(
  */
 
 app.get("/", (req, res) =>
-  Response.send200(res, `Welcome To ${process.env.APP_NAME}`, {})
+  res.send(`<h1>Welcome To ${process.env.APP_NAME}</h1>`)
 );
 
 /**
@@ -70,7 +69,7 @@ app.use("/v1", Router);
  */
 
 app.use(function (req, res, next) {
-  Response.send404(res, "Resource not found!");
+  res.json("Resource not found!");
 });
 
 /**
@@ -78,7 +77,7 @@ app.use(function (req, res, next) {
  */
 
 app.use(function (err, req, res, next) {
-  Response.send500(res, err.message);
+  res.json(err.message);
 });
 
 /**

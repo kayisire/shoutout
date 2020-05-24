@@ -26,3 +26,5 @@ router.get("/topic/:topic/comment", CommentController.getAllComments);
  * @param {string} path - Express path
  */
 router.delete("/topic/:topic/comment/:id", CommentController.deleteOneComment);
+
+module.exports = router;

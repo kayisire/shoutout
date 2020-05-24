@@ -1,8 +1,8 @@
-var Router = require("express");
-var TopicRoute = require("./Topics");
-var CommentRoute = require("./Comments");
+const Router = require("express");
+const TopicRoute = require("./Topics");
+const CommentRoute = require("./Comments");
 
-var router = Router();
+const router = Router();
 
 /**
  * Route handling topic actions

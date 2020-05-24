@@ -33,3 +33,5 @@ router.get("/:id", TopicController.getOneTopic);
  * @param {string} path - Express path
  */
 router.delete("/:id", TopicController.deleteOneTopic);
+
+module.exports = router;
