@@ -7,8 +7,9 @@ let requiredString = {
 
 const CommentSchema = mongoose.Schema(
   {
-    comment: requiredString,
-    isActive: { type: Boolean, require: true, default: true },
+    content: requiredString,
+    TopicRefID: requiredString,
+    isDeleted: { type: Boolean, require: true, default: false },
   },
   {
     toJSON: {
