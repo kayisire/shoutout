@@ -23,7 +23,7 @@ const Router = require("./routes/Router");
 
 const app = express();
 const port = process.env.PORT;
-initDB();
+// initDB();
 
 /**
  * Configuring middleware for logging, body parsing, as well as cookie parsing
@@ -51,9 +51,7 @@ app.use(
  * @param {string} path - Express path
  */
 
-app.get("/", (req, res) =>
-  res.send(`<h1>Welcome To ${process.env.APP_NAME}</h1>`)
-);
+app.get("/", (req, res) => res.json(`Welcome To ${process.env.APP_NAME}`));
 
 /**
  * Route serving API Routes

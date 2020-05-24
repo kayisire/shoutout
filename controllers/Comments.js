@@ -3,7 +3,6 @@
  */
 
 const Comment = require("../models/Comment");
-const Topic = require("../models/Topic");
 
 /**
  * Specifying our class name for debugging reasons
@@ -18,7 +17,7 @@ class CommentController {
    * @param {Object[]} res - Response
    * @returns {Object[]} Response Obeject with HTTP status
    */
-  static createOneComment = async (req, res) => {
+  static async createOneComment(req, res) {
     try {
       //Creating one Topic record
       const CommentRecord = new Comment({
@@ -32,7 +31,7 @@ class CommentController {
         `ERROR FOUND! \nClass: ${className} \nFunction: createOneComment() \nERROR: ${err}`
       );
     }
-  };
+  }
 
   /**
    * Display all Comment records per Topic in the DB
@@ -40,7 +39,7 @@ class CommentController {
    * @param {Object[]} res - Response
    * @returns {Object[]} Response Obeject with HTTP status
    */
-  static getAllComments = async (req, res) => {
+  static async getAllComments(req, res) {
     try {
       const CommentRecord = Comment.find()
         .where("TopicRefID")
@@ -51,7 +50,7 @@ class CommentController {
         `ERROR FOUND! \nClass: ${className} \nFunction: getAllComments() \nERROR: ${err}`
       );
     }
-  };
+  }
 
   /**
    * Delete one Comment record by ID from DB
@@ -59,7 +58,7 @@ class CommentController {
    * @param {Object[]} res - Response
    * @returns {Object[]} Response Object with HTTP status
    */
-  static deleteOneComment = async (req, res) => {
+  static async deleteOneComment(req, res) {
     try {
       // Deleting one Comment record
       await Comment.findByIdAndUpdate(
@@ -73,7 +72,7 @@ class CommentController {
         `ERROR FOUND! \nClass: ${className} \nFunction: deleteOneComment() \nERROR: ${err}`
       );
     }
-  };
+  }
 }
 
 module.exports = CommentController;
