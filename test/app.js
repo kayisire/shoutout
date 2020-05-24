@@ -1,9 +1,7 @@
 const chai = require("chai");
 const chaiHttp = require("chai-http");
-let chai = require("chai");
-let chaiHttp = require("chai-http");
-let app = require("../app");
-let should = chai.should();
+const app = require("../app");
+const should = chai.should();
 
 // Judgment starts here
 chai.use(chaiHttp);
