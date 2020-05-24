@@ -1,4 +1,4 @@
-![node](https://img.shields.io/node/v/express) ![npm](https://img.shields.io/npm/v/npm)
+![node](https://img.shields.io/node/v/express) ![npm](https://img.shields.io/npm/v/npm) [![CodeFactor](https://www.codefactor.io/repository/github/kayisire/shoutout/badge)](https://www.codefactor.io/repository/github/kayisire/shoutout) [![CircleCI](https://circleci.com/gh/kayisire/shoutout/tree/master.svg?style=svg)](https://circleci.com/gh/kayisire/shoutout/tree/master)
 
 # SHOUTOUT
 
