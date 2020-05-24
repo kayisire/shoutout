@@ -1,0 +1,5 @@
+{
+  "name": "shoutout",
+  "description": "Back-end codebase for SHOUTOUT",
+  "image": "heroku/nodejs"
+}
