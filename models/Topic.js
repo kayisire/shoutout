@@ -1,5 +1,4 @@
 const mongoose = require("mongoose");
-const CommentSchema = require("./Comment");
 
 let requiredString = {
   type: String,

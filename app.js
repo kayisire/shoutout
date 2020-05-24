@@ -22,8 +22,8 @@ const Router = require("./routes/Router");
  * */
 
 const app = express();
-const port = process.env.PORT;
-initDB();
+const port = process.env.PORT || 3000;
+// initDB();
 
 /**
  * Configuring middleware for logging, body parsing, as well as cookie parsing
