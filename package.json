@@ -16,9 +16,6 @@
   "bugs": {
     "url": "https://github.com/kayisire/shoutout/issues"
   },
-  "engines": {
-    "node": "10.x"
-  },
   "homepage": "https://github.com/kayisire/shoutout#readme",
   "author": "Uwikuzo Magnificat, Kevin Kayisire",
   "license": "ISC",
