@@ -1,7 +1,6 @@
 /**
  * Importing required packages
  * */
-
 require("dotenv").config();
 const cors = require("cors");
 const logger = require("morgan");
@@ -23,7 +22,7 @@ const Router = require("./routes/Router");
 
 const app = express();
 const port = process.env.PORT || 3000;
-// initDB();
+initDB();
 
 /**
  * Configuring middleware for logging, body parsing, as well as cookie parsing
