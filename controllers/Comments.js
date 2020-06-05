@@ -22,7 +22,7 @@ class CommentController {
       //Creating one Topic record
       const CommentRecord = new Comment({
         content: req.body.content,
-        TopicRefID: req.params.topic,
+        TopicRefID: req.params.topic
       });
       const newComment = await CommentRecord.save();
       res.status(201).json(newComment);
@@ -62,7 +62,7 @@ class CommentController {
     try {
       // Deleting one Comment record
       await Comment.findByIdAndUpdate(
-        { id: req.params.id },
+        { _id: req.params.id },
         { isDeleted: true },
         { new: true }
       );

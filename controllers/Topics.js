@@ -43,7 +43,8 @@ class TopicController {
   static async getAllTopics(req, res) {
     try {
       // Pulling all Topics
-      const TopicRecord = await Topic.find();
+      const TopicRecord = await Topic.find().where("isDeleted")
+      .equals("false");
       res.json(TopicRecord);
     } catch (err) {
       console.log(
