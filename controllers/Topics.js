@@ -62,7 +62,9 @@ class TopicController {
   static async getOneTopic(req, res) {
     try {
       // Pulling one Topic
-      const TopicRecord = await Topic.findById(req.params.id);
+      const TopicRecord = await Topic.findById(req.params.id).where("isDeleted")
+      .equals("false");
+
       if (TopicRecord == null) {
         return res.status(404).json({ message: "Cannot find Topic Record" });
       }
@@ -85,7 +87,7 @@ class TopicController {
     try {
       // Deleting one Topic
       await Topic.findByIdAndUpdate(
-        { id: req.params.id },
+        { _id: req.params.id },
         { isDeleted: true },
         { new: true }
       );
